@@ -1,0 +1,39 @@
+/* pages/Aiface_result/Aiface_result.wxss */
+@import "/pages/index/index.wxss";
+page{
+    background-color: #efefef;
+}
+
+.container{
+    background-color: white;
+    padding: 50rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 5rpx 3px #d8d7d7;
+    border:1px solid #d8d7d7;
+}
+.card_wrapper{
+    padding: 30px 50px 20px 50px;
+}
+#result_img{
+    height: 400rpx;
+    width: 400rpx;
+    margin: 50rpx;
+
+}
+.button{
+    display: inline-block;
+    font-size: 40rpx;
+    margin: 70rpx;
+    width: 230rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-radius: 20rpx;
+    background-color: orange;
+    color: white;
+}
+.button-icon{
+    width:60rpx;
+    height:60rpx;
+    margin-bottom:-12rpx;
+    margin-right:10rpx;
+}

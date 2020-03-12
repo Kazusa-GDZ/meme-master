@@ -1,0 +1,4 @@
+
+  <view class="container">
+  <button bindtap='chooseImageTap'>上传图片</button>
+</view>

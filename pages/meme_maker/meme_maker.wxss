@@ -1,0 +1,131 @@
+/* pages/meme_maker/memee_maker.wxss */
+@import "/pages/Aiface/Aiface.wxss";
+page{
+    background-color: #EFEFEF;
+}
+swiper{
+    height:1100rpx;
+}
+.SearchBox{
+    margin-bottom: 30rpx;
+}
+.canvas_container{
+    padding: 50rpx;
+    
+}
+#canvas_wrapper{
+    margin: 0 auto;
+    margin-top: 50rpx;
+    width: 500rpx;
+    height: 500rpx;
+    background-color: white;
+    box-shadow: 0 5rpx 3px #d8d7d7;
+    border:1px solid #d8d7d7;
+}
+.canvas-shader{
+    top:100rpx;
+    left:125rpx;
+    width: 500rpx;
+    height: 500rpx;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(238, 233, 59, 0.1)
+}
+.function_area{
+    width: 100%
+}
+.movie-container{
+  display: flex;
+  flex-direction: column;
+}
+.navbar{
+  display: flex;
+  z-index: 500;
+  width: 100%;
+  height: 50px;
+  flex-direction: row;
+  text-align: center;
+  color: #A8A8A8;
+  font-size: 15px;
+  box-sizing: border-box;
+  background-color: #FFF;
+  border-bottom: 1rpx solid #DFDFDF;
+}
+.navbar-item{
+  flex: 1;
+  padding: 26rpx 0px;
+}
+.navbar-item-active{
+  transition: all 0.3s;
+  border-bottom: 10rpx solid #febe28;
+  color: #494949;
+}
+
+#search_area{
+    padding-top: 10rpx;
+}
+
+#editor_wrapper{
+    background-color: white;
+    padding: 30rpx
+}
+.function_title{
+    font-size: 35rpx;
+    margin: 10rpx;
+
+}
+.flex_wrapper{
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx;
+}
+.text_input{
+   margin: 10rpx;
+   flex: 4
+}
+.text_input input{
+    border: 1px solid #d8d7d7;
+    line-height: 50rpx;
+    height: 50rpx;
+}
+.text_input_button{
+    flex: 1;
+    margin: 10rpx;
+}
+
+.color_button{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    box-shadow: 0 1rpx 1px #d8d7d7;
+    border:1px solid #d8d7d7;
+    margin: 10rpx;
+}
+.color-chosen{
+    box-shadow: 0 0 8px black;
+}
+#nav_to_eidtor{
+    position: fixed;
+    bottom: 1%;
+    left: 28%;
+    background-color: orange;
+    color: white;
+    width: 300rpx;
+    font-size: 35rpx;
+    border-radius: 50rpx;
+
+
+}
+#startDraw_btn{
+    color:white;
+    background-color:#007cbb;
+    width:550rpx;
+    font-size: 34rpx;
+    border-radius: 75rpx;
+}
+#export_btn{
+    width: 400rpx;
+    background-color: orange;
+    color: white;
+    border-radius: 50rpx;
+}

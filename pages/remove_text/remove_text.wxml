@@ -1,0 +1,26 @@
+<!--pages/remove_text/remove_text.wxml-->
+<view class='canvas_container'>
+    <view id="canvas_wrapper" catchtouchmove='true'>
+        
+        <canvas-drag id="canvas-drag" graph="{{graph}}" height="500" width="500" > </canvas-drag>
+
+        <cover-view class="canvas-shader" wx:if="{{drawing}}" catchtouchstart='startDraw' catchtouchmove='drawing' catchtouchend='endDraw' canvas-id='shader'></cover-view>
+        
+    </view>
+
+
+</view>
+
+<view id="editor_wrapper">
+  <view class='flex_wrapper' style='margin-top:-50rpx;justify-content:center' bindtap='start_draw_btn'>
+    <image src='/images/refresh.png' style="height:40rpx ;width:40rpx;margin:10rpx;"></image>
+    <text style='font-size:35rpx;margin-top:10rpx'>重画范围</text>
+  </view>
+                        <view class='function_title' style="text-align:center;color:orange;">去除原表情包上的文字</view>
+                        
+                        <view class='function_title' style='color:#999;font-size:30rpx;'>在画布上用手指按住拖动绘制矩形。粉红矩形内的文字将会被消去。浅色，轮廓清晰的文字消去效果最好</view>
+                        <view class='flex_wrapper'>
+                        <button class='function_btn' style='background-color:grey' bindtap="skip">跳过</button>
+                          <button class='function_btn' bindtap="confirm">画好了</button>
+                        </view>
+</view>

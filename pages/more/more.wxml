@@ -1,0 +1,230 @@
+<!--pages/more/more.wxml-->
+
+<view>
+    <view class="zhezao" hidden="{{flag}}" catchtouchmove='ture'>
+        <view class="t_w">
+
+            <!--右上角图标开始-->
+            <view class="t_image" bindtap="conceal">
+                <image class="t_image1" src="../../images/close.png"></image>
+            </view>
+            <!--右上角图标结束-->
+
+            <!--弹出框开始-->
+            <view class="tanchu_view">
+                <view>
+                    <view class="bg_view">好友列表</view>
+                    <scroll-view scroll-y="true" style="height: 600rpx;">
+                        <view class='friend-list-item-wrapper' wx:for="{{friendlist}}">
+                            <!--如果没有注册，不显示该好友!-->
+                            <image class='friend-list-avatar' src='{{item.pic_url}}'></image>
+                            <view class='friend-list-nickname'>{{item.nickname}}</view>
+                            <view class='friend-list-nav' bindtap="visit" data-openid="{{item.openid}}">访问空间</view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+            <!--弹出框结束-->
+        </view>
+    </view>
+
+
+
+    <view class='page__bd_spacing'>
+        <view id="user_info_box">
+            <view class="weui-flex vertical-center">
+                <view style="text-align:center;flex:1">
+                    <view class="vertical-center">
+                        <image class="user_avatar" mode="cover" src="{{userInfo.avatarUrl}}" />
+                    </view>
+                </view>
+                <view style='flex:1;font-size:30rpx;color:white'>
+                    <view class='vertical-center'>
+                        <view>昵称:
+                            <text style='color:yellow'>{{userInfo.nickName}}</text>
+                        </view>
+                        <view>表情包总量:
+                            <text style='color:yellow'>{{pic_num}}</text>
+                        </view>
+                        <view>
+                            <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='weui-btn' type="primary" size="mini"> 获取头像昵称 </button>
+                        </view>
+                    </view>
+
+                </view>
+                <view style='flex:1;border-left:4rpx dashed #fdc763'>
+                    <view class="vertical-center" style='padding:15rpx;padding-right:4rpx'>
+                        <button class="social_btn" size='mini' style='padding:0;width:202rpx;font-size:26rpx' open-type='share'>
+                            <image class='icon' src="/images/invite.png" style='margin-bottom:-4rpx'></image>分享空间表情</button>
+                        <button class="social_btn" size='mini' style='padding:0;width:202rpx;font-size:26rpx' bindtap="show">
+                            <image class='icon' src="/images/friend_list.png" style='margin-bottom:-4rpx;margin-right:32rpx'></image>好友列表</button>
+
+
+                    </view>
+                </view>
+            </view>
+        </view>
+
+
+
+
+        <view style="margin:20rpx 0;font-size:30rpx">
+            <view class="wxSearch-pancel">
+                <input bindinput="wxSearchInput" class="wxSearch-input mySearchInput" style="flex:5" placeholder="搜索云空间中的表情" value="{{search_value}}" />
+                <button class="wxSearch-button mySearchBtn" bindtap="wxSearchFn" plain="true" style="font-size:30rpx">搜索</button>
+                <view style="flex:2">
+                    <button id="upload-btn" bindtap="chooseImageTap">上传</button>
+                </view>
+            </view>
+        </view>
+
+
+
+
+
+    </view>
+</view>
+<view id="pic_area">
+    <view id="group-nav" class='page__bd_spacing'>
+        <view class='weui-flex my-flex'>
+            <view class="nav-title">
+                <text style='font-weight:bold'>按分组查看</text>
+            </view>
+            <view class='flex:1'>
+                <view id="template_unfold" bindtap='template_nav_unfold' wx:if="{{!show_all_template}}">展开所有</view>
+            </view>
+
+        </view>
+        <view class="nav-wrapper {{show_all_template?'nav-wrapper_unfold':'nav-wrapper_fold'}}">
+            <view class='template-nav' wx:for="{{template_array}}" data-name="{{item}}" bindtap='change_current_template'>
+                {{item}}
+            </view>
+
+            <view id='template_fold' wx:if="{{show_all_template}}" bindtap='template_nav_fold'>收起</view>
+        </view>
+    </view>
+
+    <view id="noImage_notice" wx:if="{{noImage_notice}}">这里空空如也0.0</view>
+
+    <view class="weui-flex my-flex">
+
+        <view class="img_card" wx:for="{{image_array}}" wx:if="{{item.like}}" wx:key="image_id">
+            <view style='text-align:center'>
+                <image src="{{url + '/static/img/' + item.path}}" class="meme_pic" mode="aspectFit" data-src='{{url + "/static/img/" + item.path}}' bindtap="previewImg"></image>
+            </view>
+            <view>{{item.sentence}}</view>
+            <view class='function-panel'>
+                <view bindtap="changeTemplateName" data-imgid='{{item.image_id}}' data-name='{{item.label_name}}' data-num='{{index}}' data-src='{{url + "/static/img/" + item.path}}' data-sentence='{{item.sentence}}' data-fv='{{item.friend_visible}}' style='display:inline-block'>
+                    <image src="/images/edit.png" class="like_btn"></image>
+                </view>
+                <view bindtap="unlike" data-imgid='{{item.image_id}}' data-num='{{index}}' style='display:inline-block'>
+                    <image src="/images/delete.png" class="like_btn"></image>
+                </view>
+            </view>
+
+
+            
+
+        </view>
+
+
+
+
+
+    </view>
+    <view id="back_to_mainPage" wx:if="{{show_back_to_mainPage}}" bindtap='refreshImage'>回到个人空间主页</view>
+</view>
+
+<view id="upload-tips-bg" wx:if="{{tipSwitch}}">
+    <view id="upload-tips">
+        <view style='text-align:center;margin:10rpx 0'>提示</view>
+        <view class="tips-text">我们服务器的小AI同学，发现您的下面这些图片有些问题，拒绝了他们的上传哦，请检查一下</view>
+
+
+        <scroll-view scroll-y="true" style="height: 600rpx;">
+            <view wx:for="{{noMemeArray}}" style='border-bottom:1px solid #ccc'>
+                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="{{item.url}}" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title" style="color:red">{{item.msg}}</view>
+                    </view>
+
+                </navigator>
+                <view style='text-align:right' wx:if="{{item.msg == '图片不是表情包'}}">
+                    <text style='color:#606060;font-size:30rpx'>我确认，这张图片确实是表情包 </text>
+                    <text style='color:black' data-src="{{item.url}}" data-index="{{index}}" bindtap='stillupload'>仍然上传</text>
+                </view>
+            </view>
+
+        </scroll-view>
+        <!--右上角图标开始-->
+        <view class="t_image" bindtap="closeTip" style='top:2%;left:89%'>
+            <image class="t_image1" src="../../images/close.png"></image>
+        </view>
+        <!--右上角图标结束-->
+
+
+    </view>
+</view>
+
+<image src='/images/top2.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+
+<view class='toast-box' hidden='{{!ifchange}}'>
+    <view class='toastbg' catchtouchmove='true'></view>
+    <view class='showToast'>
+        <view class='toast-title'>
+            <text>用户自定义标签</text>
+        </view>
+        <view class='toast-main'>
+            <image src="{{currentimgUrl}}" mode="aspectFit" class='toast_img'></image>
+            <view class='weui-flex' style="padding:15rpx;">
+                <view style='flex:2'>
+                    <view class='vertical-center'>
+                        <text>自定义分组名</text>
+                    </view>
+
+                </view>
+                <view style='flex:3'>
+                    <input placeholder='请输入新的分组名' bindinput='setValue' data-name='stuEidtName' value='{{currentTemplateName}}' class='weui-input my-input'></input>
+                </view>
+            </view>
+
+            <view class='weui-flex' style="padding:15rpx;">
+                <view style='flex:2'>
+                    <view class='vertical-center'>
+                        <text>自定义图片名</text>
+                    </view>
+
+                </view>
+                <view style='flex:3'>
+                    <input placeholder='请输入新的图片名' bindinput='setSentence' data-name='stuEidtName' value='{{currentSentence}}' class='weui-input my-input'></input>
+                </view>
+            </view>
+            <view class='weui-flex' style="padding:15rpx;">
+                <view style='flex:2'>
+                    <view class='vertical-center'>
+                        <text>是否对朋友可见</text>
+                    </view>
+
+                </view>
+                <view style='flex:3'>
+                    <switch checked='{{currentfv}}' bindchange="switch1Change" color='orange'/>
+                </view>
+            </view>
+
+            <button type='primary' bindtap='edit' style ="margin-top:20rpx;background-color:orange;color:white">修改</button>
+
+
+
+
+
+        </view>
+        <!--右上角图标开始-->
+        <view class="t_image" bindtap="cancel" style='top:-7%;left:96%'>
+            <image class="t_image1" src="../../images/close.png"></image>
+        </view>
+        <!--右上角图标结束-->
+    </view>
+</view>

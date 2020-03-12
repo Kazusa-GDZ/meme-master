@@ -1,0 +1,66 @@
+/* pages/Aiface/Aiface.wxss */
+@import "/pages/index/index.wxss";
+page{
+    background-color: #EFEFEF;
+}
+.container{
+    background-color: white;
+    min-height: 550rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 5rpx 3px #d8d7d7;
+    border:1px solid #d8d7d7;
+}
+.card_wrapper{
+    padding: 30px 50px 20px 50px;
+}
+#template_pic{
+    margin-top:30rpx;
+    height: 300rpx;
+    width: 300rpx;
+    border-radius: 50%;
+    border: 5px solid orange;
+}
+.upload-btn{
+    margin-top: 50rpx;
+    width: 300rpx;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 50rpx;
+
+}
+#search_area{
+    min-height: 600rpx;
+    background-color: white;
+    box-shadow: 0 5rpx 3px #d8d7d7;
+    border:1px solid #d8d7d7;
+}
+.my-flex{
+    justify-content: left;
+    flex-direction: row;
+    flex-wrap:wrap;
+
+}
+#camera_button{
+    height: 130rpx;
+    width: 130rpx;
+    border: 1px solid #d8d7d7;
+    margin: 18rpx;
+}
+.meme_pic{
+    height: 130rpx;
+    width: 130rpx;
+    border: 1px solid #d8d7d7;
+    margin: 17rpx;
+    position: relative;
+}
+.chosen-cover{
+    width:130rpx;
+    height:130rpx;
+    position:absolute;
+    left:0;
+    top:0
+}
+.SearchBox{margin-top: 10rpx;}
+
+/*覆盖原来的设置*/

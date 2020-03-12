@@ -1,0 +1,14 @@
+<!--pages/Aiface_result/Aiface_result.wxml-->
+
+<view class='card_wrapper'>
+<view class='container'>
+    <view style='font-size:40rpx;color:#666'>请查收你的最新表情包</view>
+    <image id="result_img" src="{{result}}" mode='aspectFit' data-src="{{result}}" bindtap='previewImg'/>
+    <view style='font-size:30rpx;color:#f19b2b'>喜欢的话可以将本小程序分享给其他朋友一起玩哦</view>
+</view>
+
+</view>
+<view style='text-align:center'>
+<button class='button' bindtap="save"><image src='/images/save.png' class='button-icon'/>保存</button>
+<button  class='button' type='primary' open-type='share'><image src='/images/share.png' class='button-icon' />分享</button>
+</view>

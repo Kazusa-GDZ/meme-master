@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/uploadpic/uploadpic",
+    "pages/searchResult/searchResult",
+    "pages/logs/logs",
+    "pages/discovery/discovery",
+    "pages/more/more",
+    "pages/Aiface/Aiface",
+    "pages/Aiface_result/Aiface_result",
+    "pages/otherzone/otherzone",
+    "pages/maker_menu/maker_menu",
+    "pages/meme_maker/meme_maker",
+    "pages/choose_pic/choose_pic",
+    "pages/remove_text/remove_text",
+    "pages/text_edit/text_edit"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "斗图大师",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#eb8501",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "搜索表情",
+        "iconPath": "images/search.png",
+        "selectedIconPath": "images/search2.png"
+      },
+      {
+        "pagePath": "pages/maker_menu/maker_menu",
+        "text": "魔法制图",
+        "iconPath": "images/menu1.png",
+        "selectedIconPath": "images/menu2.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "个人云空间",
+        "iconPath": "images/cloud.png",
+        "selectedIconPath": "images/cloud2.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 60000
+  }
+}

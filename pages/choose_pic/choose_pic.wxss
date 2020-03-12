@@ -1,0 +1,24 @@
+@import "/pages/Aiface/Aiface.wxss";
+page{
+    background-color: white;
+}
+.SearchBox{
+    margin-bottom: 30rpx;
+}
+#search_area{
+  padding-bottom: 100rpx;
+  border: none;
+}
+
+#nav_to_eidtor{
+    position: fixed;
+    bottom: 2%;
+    left: 28%;
+    background-color: orange;
+    color: white;
+    width: 300rpx;
+    font-size: 35rpx;
+    border-radius: 50rpx;
+
+
+}

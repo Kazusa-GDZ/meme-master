@@ -1,0 +1,11 @@
+{
+ "navigationBarBackgroundColor": "#febe28",
+"enablePullDownRefresh": false,
+"disableScroll": true,
+"navigationBarTextStyle": "white",
+"navigationBarTitleText": "文字消去",
+"backgroundColor": "#ed7912",
+"usingComponents": {
+  "canvas-drag": "/components/canvas-drag/index"
+}
+}

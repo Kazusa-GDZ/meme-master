@@ -1,0 +1,17 @@
+/* pages/maker_menu/maker_menu.wxss */
+@import "/pages/index/index.wxss";
+page{
+    background-color: #EFEFEF;
+}
+.menu_button{
+    flex: 1;
+    width: 130rpx;
+    margin: 50rpx;
+    padding: 30rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 5rpx 3px #d8d7d7;
+    border:1px solid #d8d7d7;
+    background-color:white;
+    text-align: center;
+    
+}

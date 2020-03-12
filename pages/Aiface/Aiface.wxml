@@ -1,0 +1,32 @@
+<!--pages/Aiface/Aiface.wxml-->
+<view class='card_wrapper'>
+    <view class="container" style='text-align:center'>
+        <view style='font-size:40rpx;margin-top:22rpx'>模板图片</view>
+        <image id="template_pic" src='{{template_use_base64?template_base64 : template_url}}' mode="aspectFit"></image>
+        <view style='font-size:35rpx;margin-top:30rpx;color:#999'>使用方法</view>
+        <view style='font-size:30rpx;color:#999;margin: 10rpx 30rpx 40rpx 30rpx'>请先在下方选择模板图片，再点击 上传人脸照片按钮</view>
+    </view>
+    <button class='upload-btn' bindtap='chooseImageTap2'>上传人脸照片</button>
+</view>
+<view id="search_area">
+    <view style='font-size:30rpx;text-align:center;margin-top:10rpx;margin-bottom:-12rpx;'>选择模板图片</view>
+    <view class="SearchBox">
+        <view class="wxSearch-pancel">
+            <input bindinput="wxSearchInput" style="font-size:30rpx;flex:6" class="wxSearch-input mySearchInput" placeholder="快来pick你想要的表情包吧" />
+            <button class="wxSearch-button mySearchBtn" bindtap="wxSearchFn" plain="true" style="font-size:30rpx">搜索</button>
+            <view style="flex:2;font-size:30rpx;color:#41a1fa;line-height:1.9rem;height:1.4rem;margin-left:25rpx;" bindtap="get_random_tap">随便找找</view>
+        </view>
+    </view>
+    <view  class='weui-flex my-flex page__bd page__bd_spacing' style='margin-top:-20rpx;'>
+    <view id="camera_button" bindtap='chooseImageTap1'>
+        <image src="/images/camera_default.jpeg" style='width:130rpx;height:130rpx;'></image>
+    </view>
+    <view class="meme_pic" wx:for="{{imgarray}}" wx:key="image_id" data-index="{{index}}" data-src='{{url + "/static/img/" + item.path}}' bindtap="choose_meme_pic">
+        <image src="{{url + '/static/img/' + item.path}}" mode="aspectFit" style='width:130rpx;height:130rpx;'></image>
+        <image class='chosen-cover' src='/images/chosen.png' wx:if="{{index==chosen_index}}"></image>
+    </view>
+    
+
+
+    </view>
+</view>

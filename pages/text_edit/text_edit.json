@@ -1,0 +1,10 @@
+{
+"navigationBarBackgroundColor": "#febe28",
+"enablePullDownRefresh": false,
+"navigationBarTextStyle": "white",
+"navigationBarTitleText": "添加文字",
+"backgroundColor": "#ed7912",
+"usingComponents": {
+  "canvas-drag": "/components/canvas-drag/index"
+}
+}

@@ -1,0 +1,24 @@
+
+<view id="search_area" >
+                            <view class="SearchBox">
+                                <view class="wxSearch-pancel">
+                                    <input bindinput="wxSearchInput" style="font-size:30rpx;flex:6" class="wxSearch-input mySearchInput" placeholder="快来pick你想要的表情包吧" />
+                                    <button class="wxSearch-button mySearchBtn" bindtap="wxSearchFn" plain="true" style="font-size:30rpx">搜索</button>
+                                    <view style="flex:2;font-size:30rpx;color:#41a1fa;line-height:1.9rem;height:1.4rem;margin-left:25rpx;" bindtap="get_random_tap">随便找找</view>
+                                </view>
+                            </view>
+                            <view class='weui-flex my-flex page__bd page__bd_spacing' style='margin-top:-20rpx;'>
+                                <view id="camera_button" bindtap='onAddImage'>
+                                    <image src="/images/camera_default.jpeg" style='width:130rpx;height:130rpx;'></image>
+                                </view>
+                                <view class="meme_pic" wx:for="{{imgarray}}" wx:key="image_id" data-index="{{index}}" data-src='{{url + "/static/img/" + item.path}}' bindtap="choose_meme_pic">
+                                    <image src="{{url + '/static/img/' + item.path}}" mode="aspectFit" style='width:130rpx;height:130rpx;'></image>
+                                    <image class='chosen-cover' src='/images/chosen.png' wx:if="{{index==chosen_index}}"></image>
+                                </view>
+
+
+
+                            </view>
+                        </view>
+
+<button id="nav_to_eidtor" bindtap='goto' wx:if="{{img_chosen}}">开始制作</button>

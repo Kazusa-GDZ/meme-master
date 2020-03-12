@@ -1,0 +1,84 @@
+page{
+  background-color: #EFEFEF;
+}
+
+.canvas_container{
+    padding: 50rpx;
+    
+}
+#canvas_wrapper{
+    margin: 0 auto;
+    margin-top: 50rpx;
+    width: 500rpx;
+    height: 500rpx;
+    background-color: white;
+    box-shadow: 0 5rpx 3px #d8d7d7;
+    border:1px solid #d8d7d7;
+}
+.canvas-shader{
+    top:100rpx;
+    left:125rpx;
+    width: 500rpx;
+    height: 500rpx;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(238, 233, 59, 0.1)
+}
+.function_area{
+    width: 100%
+}
+
+#editor_wrapper{
+    padding: 30rpx
+}
+.function_title{
+    font-size: 35rpx;
+    margin: 30rpx;
+
+}
+.flex_wrapper{
+    display: flex;
+    flex-direction: row;
+    padding: 20rpx;
+}
+
+.function_btn{
+    background-color: orange;
+    color: white;
+    width: 300rpx;
+    font-size: 35rpx;
+    border-radius: 50rpx;
+}
+.text_input{
+   margin: 10rpx;
+   flex: 4
+}
+.text_input input{
+    border: 1px solid #d8d7d7;
+    background-color:white;
+    line-height: 50rpx;
+    height: 50rpx;
+}
+.text_input_button{
+    flex: 1;
+    margin: 10rpx;
+}
+
+.color_button{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    box-shadow: 0 1rpx 1px #d8d7d7;
+    border:1px solid #d8d7d7;
+    margin: 10rpx;
+}
+.color-chosen{
+    box-shadow: 0 0 8px black;
+}
+
+#export_btn{
+    width: 400rpx;
+    background-color: orange;
+    color: white;
+    border-radius: 50rpx;
+}

@@ -1,0 +1,56 @@
+<!--pages/more/more.wxml-->
+
+<view class='page__bd_spacing'>
+  <view id="user_info_box">
+    <view class="weui-flex vertical-center" >
+      <view class="weui-flex__item" style="text-align:center">
+      <view class="vertical-center">
+        <image class="user_avatar" mode="cover" src="{{othersAvatarurl}}"/></view>
+      </view>  
+      <view  class = "weui-flex__item" style='font-size:30rpx;color:white'>
+        <view class='vertical-center'>
+          <view>昵称:<text style='color:yellow'>{{ohtersNicName}}</text></view>
+          <view>表情包总量:<text style='color:yellow'>{{pic_num}}</text></view>
+          
+        </view>
+        
+      </view>
+      <view class='"weui-flex__item'>
+        <view class="vertical-center">
+            <view bindtap='back' style='color:yellow;font-size:30rpx;text-align:center'>回到我的空间</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  
+</view>
+
+<view id="pic_area">
+    <view id="noImage_notice" wx:if="{{noImage_notice}}" >这里空空如也0.0</view>
+    
+    <view class="weui-flex my-flex" style="margin-top:30rpx" >
+
+      <view class="img_card" wx:for="{{image_array}}"  wx:key="image_id" >
+        <view style='text-align:center'>
+          <image src="{{url + '/static/img/' + item.path}}" class="meme_pic"mode="aspectFit" data-src='{{url + "/static/img/" + item.path}}' bindtap="previewImg"></image>
+        </view>
+        <view style="float:left">{{item.sentence}}</view>
+      
+       <image src="/images/like2.png" class="like_btn"  wx:if="{{item.like}}"           bindtap="unlike" data-imgid='{{item.image_id}}' data-num='{{index}}'></image>
+      <image src="/images/like1.png" class="like_btn" wx:else 
+      bindtap="like" data-imgid='{{item.image_id}}' data-num='{{index}}'></image>
+        </view>
+        
+
+        
+
+    
+    </view>
+    <view id="back_to_mainPage" wx:if="{{show_back_to_mainPage}}" bindtap='refreshImage'>回到个人空间主页</view>
+  </view>
+
+
+
+<image src='/images/top.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>

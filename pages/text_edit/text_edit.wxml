@@ -1,0 +1,39 @@
+<!--pages/text_edit/text_edit.wxml-->
+<view class='canvas_container'>
+    <view id="canvas_wrapper" catchtouchmove='true'>
+        
+        <canvas-drag id="canvas-drag" graph="{{graph}}" height="500" width="500" > </canvas-drag>
+
+        <cover-view class="canvas-shader" wx:if="{{drawing}}" catchtouchstart='startDraw' catchtouchmove='drawing' catchtouchend='endDraw' canvas-id='shader'></cover-view>
+        
+    </view>
+
+
+</view>
+
+<view class='function_area'>
+<view id="editor_wrapper">
+                        <view class='function_title'>添加文字</view>
+                            <view class='flex_wrapper'>
+                                <view class='text_input'>
+                                    <input bindinput="onInputChange"></input>
+                                </view>
+                                
+                                <view class='text_input_button'>
+                                    <button size='mini' style='color:white;background-color:#007cbb;font-size:25rpx;' bindtap='onAddText'>添加</button>
+                                </view>
+                                
+                            </view>
+                            
+                        <view class='function_title'>文字颜色</view>
+                        <view class='flex_wrapper'>
+                            <view class='color_button {{(index == current_color_index)?"color-chosen" : "" }}' wx:for="{{color_array}}" style="background-color:{{item}}" data-color="{{item}}" bindtap='onChangeColor' data-color_index="{{index}}">
+
+                            </view>
+                        </view>
+                        
+                        <view class='flex_wrapper'>
+                            <button id="export_btn" bindtap='onExport'>生成图片</button>
+                        </view>   
+                    </view>
+</view>

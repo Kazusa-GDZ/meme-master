@@ -1,0 +1,17 @@
+<!--pages/maker_menu/maker_menu.wxml-->
+<view style='padding:50rpx 30rpx'>
+    <view class='weui-flex'>
+        <navigator class='menu_button my-flex' url='/pages/Aiface/Aiface'>
+            <image style='width:120rpx;height:120rpx' src='/images/Aiface2.png'>
+            </image>
+            <view style='font-size:35rpx;color:#666'>AI换脸</view>
+        </navigator>
+        <navigator class='menu_button my-flex' url="/pages/choose_pic/choose_pic">
+            <image style='width:120rpx;height:120rpx' src='/images/meme_maker.png'>
+            </image>
+            <view style='font-size:35rpx;color:#666'>表情制作</view>
+        </navigator>
+            
+        
+    </view>
+</view>
